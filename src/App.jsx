@@ -52,12 +52,19 @@ function App() {
     } else {
         setPhishingResults({
           "html_score": {
-            "prob_ok": "0",
-            "prob_phish": "0"
+            "prob_ok": "0.586",
+            "prob_phish": "0.414"
           },
           "image_score": {
-            "prob_ok": "0",
-            "prob_phish": "0"
+            "prob_found_logo": "0.8888888888888888",
+            "blurriness": "0.09465110989608815"
+          },
+          "whois_score": {
+            "registered_on":["1998-12-28"],
+            "registrar":["CSC Corporate Domains, Inc."],
+            "expiration_date":["2019-08-09"],
+            "state":["FL","FL","FL"],
+            "country":["US","US","US"]
           }
         })
     }

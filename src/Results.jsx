@@ -60,23 +60,23 @@ export default function Results(props) {
                         <TableBody>
                             <TableRow>
                                 <TableCell>Date Registered</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.whois_score.registered_on[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Registrar</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.whois_score.registrar[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Expiration Date</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.whois_score.expiration_date[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>State</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.whois_score.state[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Country</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.whois_score.country[0]}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
