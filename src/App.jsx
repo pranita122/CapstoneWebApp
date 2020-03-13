@@ -15,7 +15,15 @@ import "./App.css";
 import logo from "./logo.webp";
 import axios from "axios";
 import Typed from 'react-typed';
-
+import { grid } from "@material-ui/system";
+import Results from "./Results";
+// set to true to use local server
+const USING_SERVER = false;
+const textStyle = { marginBottom: "30px" };
+const mainStyle = { padding: "70px" };
+const logoStyle = { height: "50px" };
+const payPalStyle = { marginRight: "30px" };
+const tabsStyle = { flexGrow: 1 };
 
 function App() {
   // useReducer ideally
@@ -26,26 +34,33 @@ function App() {
     false
   );
 
-  const textStyle = { marginBottom: "30px" };
-  const mainStyle = { padding: "70px" };
-  const logoStyle = { height: "50px" };
-  const payPalStyle = { marginRight: "30px" };
-  const tabsStyle = { flexGrow: 1 };
-
   function handleChange(event) {
     setTestURL(event.target.value);
   }
 
   async function handleClick() {
-    console.log("Button was clicked");
-    setIsLoadingPhishingResults(true);
-    console.log(testURL);
-    const url = `http://127.0.0.1:5000/get_score/${testURL}`;
-    // const url = "http://dummy.restapiexample.com/api/v1/employees";
-    const response = await axios.get(url);
-    console.log(response.data);
-    setPhishingResults(response);
-    setIsLoadingPhishingResults(false);
+      if (USING_SERVER) {
+        console.log("Button was clicked");
+        setIsLoadingPhishingResults(true);
+        console.log(testURL);
+        const url = `http://127.0.0.1:5000/get_score/${testURL}`;
+        // const url = "http://dummy.restapiexample.com/api/v1/employees";
+        const response = await axios.get(url);
+        console.log(response.data);
+        setPhishingResults(response);
+        setIsLoadingPhishingResults(false);
+    } else {
+        setPhishingResults({
+          "html_score": {
+            "prob_ok": "0",
+            "prob_phish": "0"
+          },
+          "image_score": {
+            "prob_ok": "0",
+            "prob_phish": "0"
+          }
+        })
+    }
   }
 
   const phishingResultsView = React.useMemo(() => {
@@ -56,24 +71,12 @@ function App() {
             strings={['Sending your request to server',
              'Taking screenshot of Suspect site', 'Extracting HTML from URL',
             'Comparing logo to screenshot', 'Running Model for HTML and URL score','Getting Results']}
-            typeSpeed={40}
+            typeSpeed={40} style={{font: "Roboto"}}
         />
       </div>);
     } else if (!isLoadingPhishingResults && phishingResults) {
       // display response data
-      return (
-        <div style={{ display: "flex" }}>
-          <div style={{ flex: 1, backgroundColor: "blue" }}>
-            phishingResults.wnatever....
-          </div>
-          <div style={{ flex: 1, backgroundColor: "green" }}>column 2</div>
-          <div style={{ flex: 1, backgroundColor: "yellow" }}>
-            {/* {phishingResults.map((result, index) => {
-              return <div key={index}>{result.employee_name}</div>;
-            })} */}
-          </div>
-        </div>
-      );
+      return <Results phishingResults={phishingResults}/>
     } else {
       return null;
     }
@@ -81,13 +84,14 @@ function App() {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" style={{backgroundColor: "#A1C1DF"}}>
         <Toolbar>
           <img src={logo} style={logoStyle} />
           <Tabs value={0} style={tabsStyle}>
             <Tab label="Home" />
             <Tab label="Fraud History" />
-            <Tab label="Fraud History" />
+            <Tab label="Good Info" />
+            <Tab label="Trend Analysis" />
           </Tabs>
           <Button variant="contained" style={payPalStyle}>
             Bank of America
