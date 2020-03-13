@@ -51,7 +51,7 @@ function App() {
   const phishingResultsView = React.useMemo(() => {
     if (isLoadingPhishingResults) {
       return (
-      <div>
+      <div style={{marginLeft: 5 + 'em'}}>
         <Typed
             strings={['Sending your request to server',
              'Taking screenshot of Suspect site', 'Extracting HTML from URL',
@@ -68,9 +68,9 @@ function App() {
           </div>
           <div style={{ flex: 1, backgroundColor: "green" }}>column 2</div>
           <div style={{ flex: 1, backgroundColor: "yellow" }}>
-            {phishingResults.map((result, index) => {
+            {/* {phishingResults.map((result, index) => {
               return <div key={index}>{result.employee_name}</div>;
-            })}
+            })} */}
           </div>
         </div>
       );
@@ -90,7 +90,7 @@ function App() {
             <Tab label="Fraud History" />
           </Tabs>
           <Button variant="contained" style={payPalStyle}>
-            PayPal
+            Bank of America
           </Button>
         </Toolbar>
       </AppBar>
