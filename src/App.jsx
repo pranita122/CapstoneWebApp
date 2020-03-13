@@ -38,11 +38,11 @@ function App() {
     console.log("Button was clicked");
     setIsLoadingPhishingResults(true);
     console.log(testURL);
-    // const url = `http://imposter_blocker.com/get_score/${testURL}`; correct
-    const url = "http://dummy.restapiexample.com/api/v1/employees";
+    const url = `http://127.0.0.1:5000/get_score/${testURL}`;
+    // const url = "http://dummy.restapiexample.com/api/v1/employees";
     const response = await axios.get(url);
-    console.log(response);
-    setPhishingResults(response.data.data);
+    console.log(response.data);
+    setPhishingResults(response);
     setIsLoadingPhishingResults(false);
   }
 
