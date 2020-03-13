@@ -14,6 +14,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import "./App.css";
 import logo from "./logo.webp";
 import axios from "axios";
+import Typed from 'react-typed';
+
 
 function App() {
   // useReducer ideally
@@ -48,7 +50,15 @@ function App() {
 
   const phishingResultsView = React.useMemo(() => {
     if (isLoadingPhishingResults) {
-      return <div>loading results....</div>;
+      return (
+      <div>
+        <Typed
+            strings={['Sending your request to server',
+             'Taking screenshot of Suspect site', 'Extracting HTML from URL',
+            'Comparing logo to screenshot', 'Running Model for HTML and URL score','Getting Results']}
+            typeSpeed={40}
+        />
+      </div>);
     } else if (!isLoadingPhishingResults && phishingResults) {
       // display response data
       return (
