@@ -2,6 +2,7 @@ import React from "react";
 import {Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody} from "@material-ui/core";
 import PropTypes from 'prop-types';
 export default function Results(props) {
+    console.log(props.phishingResults)
     return (
         <Grid container spacing={3} justify ="center">
             <Grid item>
@@ -15,11 +16,11 @@ export default function Results(props) {
                         <TableBody>
                             <TableRow>
                                 <TableCell>Probability Ok</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.prob_ok}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Probability Phish</TableCell>
-                                <TableCell align="right">{props.phishingResults.html_score.prob_phish}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.prob_phish}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
@@ -37,11 +38,11 @@ export default function Results(props) {
                         <TableBody>
                             <TableRow>
                                 <TableCell>Probability Found Logo</TableCell>
-                                <TableCell align="right">{props.phishingResults.image_score.prob_ok}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.prob_found_logo}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Probability Images Pixelated</TableCell>
-                                <TableCell align="right">{props.phishingResults.image_score.prob_phish}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.blurriness}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
@@ -60,23 +61,23 @@ export default function Results(props) {
                         <TableBody>
                             <TableRow>
                                 <TableCell>Date Registered</TableCell>
-                                <TableCell align="right">{props.phishingResults.whois_score.registered_on[0]}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.registered_on[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Registrar</TableCell>
-                                <TableCell align="right">{props.phishingResults.whois_score.registrar[0]}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.registrar[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Expiration Date</TableCell>
-                                <TableCell align="right">{props.phishingResults.whois_score.expiration_date[0]}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.expiration_date[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>State</TableCell>
-                                <TableCell align="right">{props.phishingResults.whois_score.state[0]}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.state[0]}</TableCell>
                             </TableRow>
                             <TableRow>
                                 <TableCell>Country</TableCell>
-                                <TableCell align="right">{props.phishingResults.whois_score.country[0]}</TableCell>
+                                <TableCell align="right">{props.phishingResults.data.country[0]}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
