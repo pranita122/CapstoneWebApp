@@ -1,10 +1,9 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.App.jsx {
+  font-family: Barlow;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -12,7 +11,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.MuiToolbar-gutters {
+  padding: 0 !important
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

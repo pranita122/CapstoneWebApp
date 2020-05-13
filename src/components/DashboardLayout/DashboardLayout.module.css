@@ -1,0 +1,151 @@
+.dashboardRoot{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardHeader{
+  display: flex;
+  align-items: center;
+  background-color: #262a34;
+}
+
+.dashboardHeaderLogo{
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.dashboardHeaderLogoText{
+  color: white;
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+.dashboardHeaderLinks{
+  margin-left: auto;
+}
+
+.dashboardHeaderLink{
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: white;
+  margin-right: 2rem !important;
+}
+
+.dashboardMain{
+  display: flex;
+}
+
+.dashboardContent{
+  display: flex;
+  flex-basis: 85%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.dashboardSideBar{
+  flex-basis: 15%;
+  min-width: 12.5rem;
+  background-color: #262a34;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboardSidebarNavItem{
+  height: 4rem;
+  color: white;
+  /* background-color: black; */
+  margin-bottom: 1rem;
+  display: flex;
+  font-weight: 500;
+  font-size: 1.2em;
+  align-items: center;
+  padding-left: 1.5rem;
+  cursor: pointer;
+}
+
+.dashboardSidebarNavItem::after{
+  height: 0;
+  width: .25rem;
+  background-color: #e95656;
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+.dashboardSidebarNavItem:hover{
+  height: 4rem;
+  color: white;
+  background-color: black;
+  margin-bottom: 1rem;
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  padding-left: 1.5rem;
+  font-weight: 500;
+  position: relative;
+  transition: all .2s;
+}
+
+.dashboardSidebarNavItem:hover::after{
+  height: 100%;
+  transition: all .2s;
+}
+
+.dashboardSideBarNavItemActive{
+  height: 4rem;
+  color: white;
+  background-color: black;
+  margin-bottom: 1rem;
+  display: flex;
+  font-weight: 500;
+  font-size: 1.2em;
+  align-items: center;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.dashboardSideBarNavItemActive::after{
+  height: 100%;
+  width: .25rem;
+  background-color: #e95656;
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+.dashboardSideBarFooter{
+  margin-top: auto;
+  padding: 2rem 1.5rem;
+}
+
+.dashboardSideBarFooterBtnSignOut{
+  background-color: #e95656;
+  color: white;
+  height: 3rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2.5px;
+  font-size: 1.2em;
+  width: 100%;
+}
+
+.dashboardSidebarNavItems{
+  margin-top: 5rem;
+}
+
+.dashboardMain{
+  flex: 85%;
+}
+
+.dashboardMainHeader{
+  height: 5rem;
+  background-color: #262a34;
+  width: 100%;
+}
