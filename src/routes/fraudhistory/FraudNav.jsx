@@ -3,20 +3,21 @@ import s from "./FraudHistory.module.css";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from "@material-ui/core/Toolbar/Toolbar";
 import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import {CSVLink, CSVDownload} from 'react-csv';
 
 export default function FraudNav(props) {
-    // const
+
+    
     return(
         <div className='grow'>
             <AppBar position="static">
-                <Toolbar>
-                    <div className='search'>
-                        <div className='searchIcon'>
-                            <SearchIcon />
+                <Toolbar className={s.Toolbar}>
+                    <div className={s.download}>
+                        <div className={s.downloadIcon}>
+                            <CSVLink data={JSON.stringify(props.historyResults)}> <GetAppIcon /> </CSVLink>
                         </div>
                     </div>
-                    <div className='grow' />
                 </Toolbar>
             </AppBar>
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 import PropTypes from 'prop-types';
 import s from "./Home.module.css";
+import screenshot from "../../screenshot.png";
 
 export default function Results(props) {
   return (
@@ -52,6 +53,9 @@ export default function Results(props) {
                   </p>
               </div>
           </div> 
+          <div> 
+                <img src={screenshot} alt='screenshot of submitted URL' width='400px'/>
+          </div>
       </div>
 
       <div className={s.card}>
