@@ -16,17 +16,10 @@ const HomeURLForm = (props) => {
         <Form.Item name="singleURL">
           <Input
             placeholder="Enter a suspicious URL"
-            className={s.singleURLInput} />
-        </Form.Item>
-        <Typography.Text
-          className={s.inputDivider}>
-          OR
-            </Typography.Text>
-        <Form.Item name="multipleURLs">
-          <Input.TextArea
-            rows={5}
-            placeholder="Enter a comma-separated list of suspicious URLs"
             className={s.multipleURLsInput} />
+        </Form.Item>
+        <Form.Item name="multipleURLs">
+          <p className={s.note}>NOTE: to enter multiple URLs, enter a comma-separated list</p>
         </Form.Item>
         <button className={s.submitURLButton} onClick={props.handleFormSubmit}>
           Submit

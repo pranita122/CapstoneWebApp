@@ -1,90 +1,96 @@
 import React from "react";
 import { Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 import PropTypes from 'prop-types';
+import s from "./Home.module.css";
 
 export default function Results(props) {
   return (
-    <Grid container spacing={3} justify="center">
-      <Grid item>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>HTML/URL Score</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>Probability Ok</TableCell>
-                <TableCell align="right">{props.phishingResults.html_score.prob_ok}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Probability Phish</TableCell>
-                <TableCell align="right">{props.phishingResults.html_score.prob_phish}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-      <Grid item>
-        <Grid item>
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Image Score</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                <TableRow>
-                  <TableCell>Probability Found Logo</TableCell>
-                  <TableCell align="right">{props.phishingResults.image_score.prob_ok}</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Probability Images Pixelated</TableCell>
-                  <TableCell align="right">{props.phishingResults.image_score.prob_phish}</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-        <Grid item></Grid>
-      </Grid>
-      <Grid item>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Whois Score</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>Date Registered</TableCell>
-                <TableCell align="right">{props.phishingResults.whois_score.registered_on[0]}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Registrar</TableCell>
-                <TableCell align="right">{props.phishingResults.whois_score.registrar[0]}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Expiration Date</TableCell>
-                <TableCell align="right">{props.phishingResults.whois_score.expiration_date[0]}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>State</TableCell>
-                <TableCell align="right">{props.phishingResults.whois_score.state[0]}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>Country</TableCell>
-                <TableCell align="right">{props.phishingResults.whois_score.country[0]}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Grid>
-      <Grid item></Grid>
-    </Grid>
+    <div className={s.display}>
+      <div className={s.card}>
+          <div className={s.cardTitle}>
+              <h4> Html Score </h4>
+          </div>
+          <div className={s.cardBody}>  
+              <div>
+                  <p className={s.score}>{props.phishingResults.html_score["prob_ok"]}</p>
+              </div>
+              <div className={s.explanation}>
+                  <br />
+                  <br />
+                  This score gives a probability that the submitted website is 
+                  phishing. The model returns this score based on data points 
+                  collected from the HTML and URL of the submitted website.
+              </div>
+          </div>
+          
+      </div>
+
+      <div className={s.card}>
+          <div className={s.cardTitle}>
+              <h4> Image Score </h4>
+          </div>
+          <div className={s.cardBody2}>
+              <div> 
+                  <p className={s.subtitle}>Logo Score </p>
+                  <p className={s.score}>{props.phishingResults.image_score["prob_found_logo"]}</p>
+                  <br />
+                  <p className={s.explanation}>
+                      Logos are one of the key indicators of an 
+                      imposter website. This score represents the 
+                      likelihood of your brand logo on the submitted 
+                      website.
+                  </p>
+              </div> 
+              <div> 
+                  <p className={s.subtitle}>Blur Score </p>
+                  <p className={s.score}>{props.phishingResults.image_score["blurriness"]}</p>
+                  <br />
+                  <p className={s.explanation}>
+                      Tells you if the submitted website 
+                      has pixelated images that could have
+                      been a result of re-using copyright logos.
+                  </p>
+              </div>
+          </div> 
+      </div>
+
+      <div className={s.card}>
+          <div className={s.cardTitle}>
+              <h4> Whois </h4>
+          </div>
+          <div className={s.cardBody3}>
+            <div className={s.whois}>
+                <div>
+                    <p className={s.subtitle}> Registered on </p>
+                    <p className={s.score2}>{props.phishingResults.whois_score["registered_on"]} </p>
+                </div>
+                <div>
+                    <p className={s.subtitle} >Registrar </p>
+                    <p className={s.score2}>{props.phishingResults.whois_score["registrar"]} </p>
+                </div>
+                <div>
+                    <p className={s.subtitle}> Expiration Date </p> 
+                    <p className={s.score2}>{props.phishingResults.whois_score["expiration_date"]} </p>
+                </div>
+                <div>
+                    <p className={s.subtitle}> State </p> 
+                    <p className={s.score2}>{props.phishingResults.whois_score["state"]} </p>
+                </div>
+                <div>
+                    <p className={s.subtitle}> Country </p> 
+                    <p className={s.score2}>{props.phishingResults.whois_score["country"]} </p>
+                </div>
+            </div>
+          </div> 
+          <div>
+              <br />
+              <p className={s.explanation}> 
+                  Tells us about the background information about the url such as date
+                  registered, domain registrar name etc. for further actions.
+              </p>
+          </div>
+      </div>
+    </div>
   );
 }
 

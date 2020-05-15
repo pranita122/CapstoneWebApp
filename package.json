@@ -10,13 +10,18 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.2.0",
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "material-ui": "^0.20.2",
     "react": "^16.13.0",
+    "react-bootstrap": "^1.0.1",
+    "react-csv-reader": "^3.0.6",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-strap": "0.0.1",
     "react-tap-event-plugin": "^3.0.3",
     "react-typed": "^1.2.0",
+    "reactstrap": "^8.4.1",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {

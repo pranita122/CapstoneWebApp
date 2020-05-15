@@ -41,8 +41,8 @@ const HomeView = (props) => {
           "prob_phish": "0.414"
         },
         "image_score": {
-          "prob_found_logo": "0.8888888888888888",
-          "blurriness": "0.09465110989608815"
+          "prob_found_logo": "0.888",
+          "blurriness": "0.094"
         },
         "whois_score": {
           "registered_on": ["1998-12-28"],

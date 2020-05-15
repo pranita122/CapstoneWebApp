@@ -1,6 +1,6 @@
 import React from "react";
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import { BrowserRouter, Route, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, useHistory, Switch } from "react-router-dom";
 import { Login } from "./routes/login";
 import { Register } from "./routes/register";
 import { Home } from "./routes/home";
@@ -30,14 +30,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <switch>
+      <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/accounts" component={Accounts} />
         <Route exact path="/fraudhistory" component={FraudHistory} />
         <Route exact path="/yourcredentials" component={YourCredentials} />
-      </switch>
+      </Switch>
     </BrowserRouter>
   )
 }
