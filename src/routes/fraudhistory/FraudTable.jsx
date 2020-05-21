@@ -16,14 +16,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createMuiTheme } from '@material-ui/core/styles';
 
 function Row(props) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
-    
 
-    console.log(props)
     return(
         <React.Fragment>
             <TableRow>
@@ -141,18 +139,11 @@ function Row(props) {
                     </Collapse>
                  </TableCell>
             </TableRow>
-            {/* <tr key={props.data.id} onClick = {handleRowClick}>
-                <td scope="row">{props.data.id}</td>
-                <td>{props.data.url}</td>
-                <td>{props.data.date}</td>
-                <td>{props.data.result}</td>
-            </tr> */}
         </React.Fragment>
     )
 }
 
 export default function FraudTable(props) {
-
     return(
         <React.Fragment>
             <TableContainer component={Paper}>

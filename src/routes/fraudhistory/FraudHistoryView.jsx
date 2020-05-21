@@ -8,6 +8,9 @@ import CSVReader from 'react-csv-reader'
 import FraudTable from "./FraudTable.jsx";
 import { createMuiTheme } from '@material-ui/core/styles';
 import downloadbutton from '../../downloadbutton.png';
+import * as jsonexport from 'jsonexport/dist';
+import { useState } from 'react'
+
 
 // import PropTypes from 'prop-types';
 // import { makeStyles } from '@material-ui/core/styles';
@@ -31,10 +34,8 @@ const USING_SERVER = false;
 const FraudHistoryView = () => {
   const history = useHistory();
 
-  const handleDownload = () => {
-    console.log('download')
-  }
-
+  const [downloadLink, setDownloadLink] = useState('');
+  
   const historyResults = [
     {
       "id": "1",
@@ -156,6 +157,19 @@ const FraudHistoryView = () => {
 
   // console.log(historyResults);
 
+  const handleDownload = () => {
+    console.log('download');
+    jsonexport(historyResults, function(err, csv) {
+      if(err) return console.log(err);
+      var myURL = window.URL || window.webkitURL //window.webkitURL works in Chrome and window.URL works in Firefox
+      var csv = csv;  
+      var blob = new Blob([csv], { type: 'text/csv' });  
+      var csvUrl = myURL.createObjectURL(blob);
+      setDownloadLink(csvUrl);
+    });
+  }
+
+
   return (
     <DashboardLayout
       active={"FRAUD_HISTORY"}
@@ -166,7 +180,8 @@ const FraudHistoryView = () => {
       <br />
       <br />
       <button className={s.btn} onClick={handleDownload}> 
-        <img src={downloadbutton} alt='download' height='50px' width='30px'/>
+        {/* <img src={downloadbutton} alt='download' height='50px' width='30px'/> */}
+        {{downloadLink} &&<a download="FraudHistory.csv" href={downloadLink}>Download</a>}
       </button>
     </DashboardLayout >
   )
