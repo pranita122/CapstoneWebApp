@@ -6,10 +6,8 @@ import { DashboardLayout } from "../../components/DashboardLayout";
 import { Table } from 'reactstrap';
 import CSVReader from 'react-csv-reader'
 import FraudTable from "./FraudTable.jsx";
-import FraudNav from './FraudNav.jsx'
-
-
-
+import { createMuiTheme } from '@material-ui/core/styles';
+import downloadbutton from '../../downloadbutton.png';
 
 // import PropTypes from 'prop-types';
 // import { makeStyles } from '@material-ui/core/styles';
@@ -30,15 +28,18 @@ import FraudNav from './FraudNav.jsx'
 
 const USING_SERVER = false;
 
-
 const FraudHistoryView = () => {
   const history = useHistory();
+
+  const handleDownload = () => {
+    console.log('download')
+  }
 
   const historyResults = [
     {
       "id": "1",
-      "url": "bankkofamerica.com",
-      "date": "04/05/20",
+      "url": "https://bankofamerica-secureidentityverificationservicesonlineinstantl...",
+      "date": "05/15/20",
       "result": "Phish",
       "html_url": 55,
       "logo": 75,
@@ -55,7 +56,7 @@ const FraudHistoryView = () => {
     {
       "id": "2",
       "url": "bankofamerica.com",
-      "date": "04/05/20",
+      "date": "05/15/20",
       "result": "Safe",
       "html_url": 55,
       "logo": 75,
@@ -72,8 +73,8 @@ const FraudHistoryView = () => {
     {
       "id": "3",
       "url": "bankoofamerica.com",
-      "date": "04/05/20",
-      "result": "Phish",
+      "date": "05/15/20",
+      "result": "Safe",
       "html_url": 55,
       "logo": 75,
       "blur": 88,
@@ -156,14 +157,17 @@ const FraudHistoryView = () => {
   // console.log(historyResults);
 
   return (
-    
     <DashboardLayout
       active={"FRAUD_HISTORY"}
       history={history}
     >
       <FraudTable data={historyResults} />
-      {/* <FraudNav data = {historyResults} /> */}
-
+      <br />
+      <br />
+      <br />
+      <button className={s.btn} onClick={handleDownload}> 
+        <img src={downloadbutton} alt='download' height='50px' width='30px'/>
+      </button>
     </DashboardLayout >
   )
 }

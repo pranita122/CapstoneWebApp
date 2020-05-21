@@ -6,10 +6,17 @@
   align-items: center;
   flex-direction: column;
 }
-
+.loginHeader{
+  text-align: center;
+  padding: 1rem;
+  font-size: 2em;
+  font-weight: 500;
+  color: white;
+  padding-top: 5rem;
+}
 .loginForm{
   width: 30rem;
-  margin-top: 15vh;
+  margin-top: 5vh;
   padding: 2rem;
   border-radius: 5px;
   background-color: white;

@@ -23,6 +23,7 @@
     "react-tap-event-plugin": "^3.0.3",
     "react-typed": "^1.2.0",
     "reactstrap": "^8.4.1",
+    "rsuite": "^4.7.0",
     "typeface-roboto": "0.0.75"
   },
   "scripts": {

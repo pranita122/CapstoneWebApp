@@ -24,35 +24,40 @@ const HomeView = (props) => {
   }
 
   const handleFormSubmit = async () => {
-    if (USING_SERVER) {
-      console.log("Button was clicked");
-      setIsLoadingPhishingResults(true);
-      console.log(testURL);
-      const url = `http://127.0.0.1:5000/get_score/${testURL}`;
-      // const url = "http://dummy.restapiexample.com/api/v1/employees";
-      const response = await axios.get(url);
-      console.log(response.data);
-      setPhishingResults(response);
-      setIsLoadingPhishingResults(false);
-    } else {
-      setPhishingResults({
-        "html_score": {
-          "prob_ok": "0.586",
-          "prob_phish": "0.414"
-        },
-        "image_score": {
-          "prob_found_logo": "0.888",
-          "blurriness": "0.094"
-        },
-        "whois_score": {
-          "registered_on": ["1998-12-28"],
-          "registrar": ["CSC Corporate Domains, Inc."],
-          "expiration_date": ["2019-08-09"],
-          "state": ["FL", "FL", "FL"],
-          "country": ["US", "US", "US"]
-        }
-      })
-    }
+    setTimeout(function() {
+
+      if (USING_SERVER) {
+        // console.log("Button was clicked");
+        // setIsLoadingPhishingResults(true);
+        // console.log(testURL);
+        // const url = `http://127.0.0.1:5000/get_score/${testURL}`;
+        // // const url = "http://dummy.restapiexample.com/api/v1/employees";
+        // const response = await axios.get(url);
+        // console.log(response.data);
+        // setPhishingResults(response);
+        // setIsLoadingPhishingResults(false);
+      } else {
+        setPhishingResults({
+          "html_score": {
+            "prob_ok": "0.586",
+            "prob_phish": "0.414"
+          },
+          "image_score": {
+            "prob_found_logo": "0.888",
+            "blurriness": "0.094"
+          },
+          "whois_score": {
+            "registered_on": ["1998-12-28"],
+            "registrar": ["CSC Corporate Domains, Inc."],
+            "expiration_date": ["2019-08-09"],
+            "state": ["FL", "FL", "FL"],
+            "country": ["US", "US", "US"]
+          }
+        })
+      }
+
+    }, 3000)
+    
   }
 
   const homeCardContent = React.useMemo(() => {

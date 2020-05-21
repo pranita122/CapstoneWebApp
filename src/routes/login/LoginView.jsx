@@ -8,6 +8,11 @@ const LoginView = () => {
   const history = useHistory();
   return (
     <div className={s.loginRoot}>
+      <div className={s.loginHeader}>
+      <Typography.Text className={s.loginHeader}>
+          Impostor Blocker
+        </Typography.Text>
+      </div>
       <div className={s.loginForm}>
         <Typography.Text className={s.loginFormTitle}>
           Log In

@@ -2,6 +2,7 @@ import React from "react";
 import s from "./YourCredentials.module.css";
 import { useHistory } from 'react-router-dom'
 import { DashboardLayout } from "../../components/DashboardLayout";
+import companyCred from '../../companyCred.png'
 
 const YourCredentialsView = () => {
   const history = useHistory();
@@ -10,7 +11,7 @@ const YourCredentialsView = () => {
       active={"YOUR_CREDENTIALS"}
       history={history}
     >
-      Your Credentials content
+      <img src={companyCred} alt="credentials" width='800px'/>
     </DashboardLayout >
   )
 }
