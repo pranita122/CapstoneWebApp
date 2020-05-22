@@ -2,9 +2,15 @@ import React from "react";
 import { Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody } from "@material-ui/core";
 import PropTypes from 'prop-types';
 import s from "./Home.module.css";
-import screenshot from "../../screenshot.png";
+// import screenshot from "../../screenshot.png";
+import Image from "./Image.jsx"
 
 export default function Results(props) {
+//   var CONST_URL = props.phishingResults.url
+//   var CONST_URL = '../../'.concat(CONST_URL.substring(7), '.png') ;
+//   console.log("const url is ")
+//   console.log(CONST_URL)
+
   return (
     <div className={s.display}>
       <div className={s.card}>
@@ -13,7 +19,7 @@ export default function Results(props) {
           </div>
           <div className={s.cardBody}>  
               <div>
-                  <p className={s.score}>{props.phishingResults.html_score["prob_ok"]}</p>
+                  <p className={s.score}>{props.phishingResults.html_url}</p>
               </div>
               <div className={s.explanation}>
                   <br />
@@ -33,7 +39,7 @@ export default function Results(props) {
           <div className={s.cardBody2}>
               <div> 
                   <p className={s.subtitle}>Logo Score </p>
-                  <p className={s.score}>{props.phishingResults.image_score["prob_found_logo"]}</p>
+                  <p className={s.score}>{props.phishingResults.logo}</p>
                   <br />
                   <p className={s.explanation}>
                       Logos are one of the key indicators of an 
@@ -44,7 +50,7 @@ export default function Results(props) {
               </div> 
               <div> 
                   <p className={s.subtitle}>Blur Score </p>
-                  <p className={s.score}>{props.phishingResults.image_score["blurriness"]}</p>
+                  <p className={s.score}>{props.phishingResults.blur}</p>
                   <br />
                   <p className={s.explanation}>
                       Tells you if the submitted website 
@@ -54,7 +60,7 @@ export default function Results(props) {
               </div>
           </div> 
           <div> 
-                <img src={screenshot} alt='screenshot of submitted URL' width='400px'/>
+                <Image imURL="../../screenshot.png"/>
           </div>
       </div>
 
@@ -66,23 +72,23 @@ export default function Results(props) {
             <div className={s.whois}>
                 <div>
                     <p className={s.subtitle}> Registered on </p>
-                    <p className={s.score2}>{props.phishingResults.whois_score["registered_on"]} </p>
+                    <p className={s.score2}>{props.phishingResults.whois.registered_on} </p>
                 </div>
                 <div>
                     <p className={s.subtitle} >Registrar </p>
-                    <p className={s.score2}>{props.phishingResults.whois_score["registrar"]} </p>
+                    <p className={s.score2}>{props.phishingResults.whois.registrar} </p>
                 </div>
                 <div>
                     <p className={s.subtitle}> Expiration Date </p> 
-                    <p className={s.score2}>{props.phishingResults.whois_score["expiration_date"]} </p>
+                    <p className={s.score2}>{props.phishingResults.whois.expiration_date} </p>
                 </div>
                 <div>
                     <p className={s.subtitle}> State </p> 
-                    <p className={s.score2}>{props.phishingResults.whois_score["state"]} </p>
+                    <p className={s.score2}>{props.phishingResults.whois.state} </p>
                 </div>
                 <div>
                     <p className={s.subtitle}> Country </p> 
-                    <p className={s.score2}>{props.phishingResults.whois_score["country"]} </p>
+                    <p className={s.score2}>{props.phishingResults.whois.country} </p>
                 </div>
             </div>
           </div> 

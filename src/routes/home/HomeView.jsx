@@ -8,7 +8,7 @@ import HomeResults from "./HomeResults";
 import Typed from 'react-typed';
 import { useHistory } from 'react-router-dom'
 
-const USING_SERVER = false;
+const USING_SERVER = true;
 
 const HomeView = (props) => {
   const history = useHistory();
@@ -20,22 +20,28 @@ const HomeView = (props) => {
   );
 
   function handleChange(event) {
+    event.preventDefault();
     setTestURL(event.target.value);
   }
 
   const handleFormSubmit = async () => {
-    setTimeout(function() {
+    
 
       if (USING_SERVER) {
-        // console.log("Button was clicked");
-        // setIsLoadingPhishingResults(true);
-        // console.log(testURL);
-        // const url = `http://127.0.0.1:5000/get_score/${testURL}`;
-        // // const url = "http://dummy.restapiexample.com/api/v1/employees";
-        // const response = await axios.get(url);
-        // console.log(response.data);
-        // setPhishingResults(response);
-        // setIsLoadingPhishingResults(false);
+        setIsLoadingPhishingResults(true);
+        console.log(testURL);
+        const url = `http://127.0.0.1:5000/v1/threatdetector/${testURL}`;
+        // const url = "http://dummy.restapiexample.com/api/v1/employees";
+        const response = await axios.get(url);
+        console.log(response.data);
+        setTimeout(function() {
+        setPhishingResults(response.data);
+        console.log("the phishing results are")
+        console.log({phishingResults})
+        console.log("fdfg")
+        setIsLoadingPhishingResults(false);
+        }, 3000)
+
       } else {
         setPhishingResults({
           "html_score": {
@@ -56,7 +62,6 @@ const HomeView = (props) => {
         })
       }
 
-    }, 3000)
     
   }
 
@@ -96,6 +101,7 @@ const HomeView = (props) => {
       <Card className={s.urlFormCards}>
         <HomeURLForm
           handleFormSubmit={handleFormSubmit}
+          handleChange={handleChange}
         />
       </Card>
       {homeCardContent}
