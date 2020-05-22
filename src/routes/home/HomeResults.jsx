@@ -3,7 +3,6 @@ import { Grid, TableContainer, Table, TableHead, TableRow, TableCell, TableBody 
 import PropTypes from 'prop-types';
 import s from "./Home.module.css";
 import Image from "./Image.jsx"
-import screenshot from "../../screenshot.png";
 
 export default function Results(props) {
     return (

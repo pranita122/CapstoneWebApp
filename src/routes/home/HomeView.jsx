@@ -35,11 +35,11 @@ const HomeView = (props) => {
         const response = await axios.get(url);
         console.log(response.data);
         setTimeout(function() {
-        setPhishingResults(response.data);
-        console.log("the phishing results are")
-        console.log({phishingResults})
-        console.log("fdfg")
-        setIsLoadingPhishingResults(false);
+            setPhishingResults(response.data);
+            console.log("the phishing results are")
+            console.log({phishingResults})
+            console.log("fdfg")
+            setIsLoadingPhishingResults(false);
         }, 3000)
 
       } else {
