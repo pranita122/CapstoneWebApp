@@ -56,7 +56,7 @@ const HomeView = (props) => {
         })
       }
 
-    }, 3000)
+    }, 1001)
     
   }
 
@@ -77,11 +77,11 @@ const HomeView = (props) => {
     } else if (!isLoadingPhishingResults && phishingResults) {
       // display response data
       return (
-        <Card className={s.resultsCard}>
+        // <Card className={s.resultsCard}>
           <HomeResults
             phishingResults={phishingResults}
           />
-        </Card>
+        // </Card>
       )
     } else {
       return null;
